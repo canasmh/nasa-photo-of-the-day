@@ -1,9 +1,15 @@
 import React, { useState } from "react";
 
 const APOD = (props) => {
-    const {show, data} = props;
+    const {data} = props;
 
-    return (<p>Hello World</p>)
+    return (
+        <main>
+            <h3>{data.title}</h3>
+            <img src={data.hdurl} alt="NASA's picture of the day" />
+            <p>{data.description}</p>
+        </main>
+    )
 }
 
 export default APOD;

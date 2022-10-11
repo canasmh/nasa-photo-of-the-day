@@ -14,7 +14,7 @@ function App() {
 
   useEffect(() => {
 
-    axios.get(`https://api.nasa.gov/planetary/apod?api_key=${APIKey}`)
+    axios.get(`https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY`)
     .then((res) => {
       setData(res.data);
     })
@@ -29,7 +29,7 @@ function App() {
   return (
     <div className="App">
       <Header />
-      <APOD />
+      {showAPOD && <APOD data={data}/>}
       <ButtonApod show={showAPOD} setShow={setShowAPOD} />
     </div>
   );
