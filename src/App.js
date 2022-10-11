@@ -1,6 +1,7 @@
-import React, { useState, useEffect } from "react"
-import Header from "./Header"
-import ButtonApod from "./buttonAPOD"
+import React, { useState, useEffect } from "react";
+import Header from "./Header";
+import ButtonApod from "./buttonAPOD";
+import APOD from "./APOD";
 import axios from "axios";
 import "./App.css"
 
@@ -21,11 +22,14 @@ function App() {
       console.log(`There was an error: ${err}`)
     })
 
+    return () => setData(null);
+
   }, [data])
 
   return (
     <div className="App">
       <Header />
+      <APOD />
       <ButtonApod show={showAPOD} setShow={setShowAPOD} />
     </div>
   );
