@@ -28,7 +28,7 @@ function App() {
 
   return (
     <div className="App">
-      <Header />
+      <Header show={showAPOD} />
       {showAPOD && <APOD data={data}/>}
       <ButtonApod show={showAPOD} setShow={setShowAPOD} />
     </div>
