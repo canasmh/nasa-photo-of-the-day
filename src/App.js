@@ -10,21 +10,21 @@ const APIKey = "ZZiO6f1RcheyeRmwgte17PfJTpALOaTUg64Ucy7Z"
 function App() {
 
   const [showAPOD, setShowAPOD] = useState(false);
-  const [data, setData] = useState(null);
+  const [data, setData] = useState({});
 
   useEffect(() => {
 
-    axios.get(`https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY`)
-    .then((res) => {
-      setData(res.data);
-    })
-    .catch((err) => {
-      console.log(`There was an error: ${err}`)
-    })
+    const fetchData = () => {
+      axios
+        .get(`https://api.nasa.gov/planetary/apod?api_key=${APIKey}`)
+        .then(res => setData(res.data))
+        .catch(err => console.log(`There was an error: ${err}`))
+    };
 
-    return () => setData(null);
+    fetchData();
+    return () => console.log("Clean effect");
 
-  }, [data])
+  }, [])
 
   return (
     <div className="App">
